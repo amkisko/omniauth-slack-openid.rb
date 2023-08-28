@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.authors = ["Andrei Makarov"]
   gem.email = ["andrei@kiskolabs.com"]
   gem.homepage = repository_url
-  gem.summary = %q{Slack OAuth2 strategy for OmniAuth}
+  gem.summary = %q{An OmniAuth strategy for implementing Sign-in with Slack using OpenID Connect}
   gem.description = gem.summary
   gem.metadata = {
     "homepage" => repository_url,
