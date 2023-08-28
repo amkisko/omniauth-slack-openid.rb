@@ -1,10 +1,13 @@
+# -*- encoding: utf-8 -*-
+require File.expand_path('../lib/omniauth/slack_openid/version', __FILE__)
+
 Gem::Specification.new do |gem|
   gem.name = "omniauth-slack-openid"
-  gem.version = OmniAuth::Slack::VERSION
+  gem.version = OmniAuth::SlackOpenid::VERSION
 
-  repository_url = "https://github.com/amkisko/omniauth_slack_openid.rb"
+  repository_url = "https://github.com/amkisko/omniauth-slack-openid.rb"
   root_files = %w(CHANGELOG.md LICENSE.md README.md)
-  root_files += "#{gem.name}.gemspec"
+  root_files << "#{gem.name}.gemspec"
 
   gem.license = "MIT"
 
@@ -30,11 +33,11 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = ">= 1.9.3"
   gem.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'omniauth', '~> 2'
-  spec.add_runtime_dependency 'omniauth-oauth2', '~> 1'
+  gem.add_runtime_dependency 'omniauth', '~> 2'
+  gem.add_runtime_dependency 'omniauth-oauth2', '~> 1'
 
-  spec.add_development_dependency 'bundler', '~> 2'
-  spec.add_development_dependency 'rake', '~> 13'
-  spec.add_development_dependency 'pry-byebug'
-  spec.add_development_dependency 'rspec', '~> 3'
+  gem.add_development_dependency 'bundler', '~> 2'
+  gem.add_development_dependency 'rake', '~> 13'
+  gem.add_development_dependency 'pry-byebug'
+  gem.add_development_dependency 'rspec', '~> 3'
 end
