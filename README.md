@@ -2,7 +2,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/omniauth-slack-openid.svg)](https://badge.fury.io/rb/omniauth-slack-openid) [![Test Status](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml/badge.svg)](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml)
 
-An OmniAuth strategy for Slack's OAuth2 API.
+An OmniAuth strategy for implementing Sign-in with Slack using OpenID Connect.
+
+Official documentation: https://api.slack.com/authentication/sign-in-with-slack
 
 Sponsored by [Kisko Labs](https://www.kiskolabs.com).
 
