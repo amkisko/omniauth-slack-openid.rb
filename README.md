@@ -1,6 +1,6 @@
-# omniauth_slack_openid.rb
+# omniauth-slack-openid.rb
 
-[![Gem Version](https://badge.fury.io/rb/omniauth-slack-openid.svg)](https://badge.fury.io/rb/omniauth-slack-openid) [![Test Status](https://github.com/amkisko/omniauth_slack_openid.rb/actions/workflows/test.yml/badge.svg)](https://github.com/amkisko/omniauth_slack_openid.rb/actions/workflows/test.yml)
+[![Gem Version](https://badge.fury.io/rb/omniauth-slack-openid.svg)](https://badge.fury.io/rb/omniauth-slack-openid) [![Test Status](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml/badge.svg)](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml)
 
 An OmniAuth strategy for Slack's OAuth2 API.
 
@@ -45,7 +45,7 @@ In order to test the callback in development, try logging in and then manually u
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/amkisko/omniauth_slack_openid.rb
+Bug reports and pull requests are welcome on GitHub at https://github.com/amkisko/omniauth-slack-openid.rb
 
 ## Publishing
 
