@@ -45,6 +45,17 @@ Add the following to your `config/initializers/devise.rb`:
 
 In order to test the callback in development, try logging in and then manually update URL to use http instead of https.
 
+## Generating uid
+
+Gem has own `generate_uid` method that concatenates `team_id` and `user_id`, you can use it with custom parameters:
+
+```ruby
+def resolve_user_session(team_id, user_id)
+  uid = OmniAuth::Strategies::SlackOpenid.generate_uid(team_id, user_id)
+  UserSession.find_by(uid: uid, provider: "slack-openid")
+end
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/amkisko/omniauth-slack-openid.rb
