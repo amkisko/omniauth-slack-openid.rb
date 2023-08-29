@@ -37,6 +37,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'bundler', '~> 2'
   gem.add_development_dependency 'rake', '~> 13'
-  gem.add_development_dependency 'pry-byebug'
+  gem.add_development_dependency 'pry-byebug', '~> 3'
   gem.add_development_dependency 'rspec', '~> 3'
 end
