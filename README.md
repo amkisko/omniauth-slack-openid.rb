@@ -28,6 +28,15 @@ gem 'omniauth-slack-openid'
 
 ## Usage with Devise
 
+Create Slack app and configure OAuth & Permissions to have the following Redirect URLs:
+- https://localhost:3000/user/auth/slack_openid/callback
+
+Copy `Client ID` and `Client Secret` to your environment (e.g. `.env.local` file):
+```sh
+SLACK_CLIENT_ID=1234567890.1234567890
+SLACK_CLIENT_SECRET=1234567890abcdef1234567890abcdef
+```
+
 Add the following to your `config/initializers/devise.rb`:
 
 ```ruby
