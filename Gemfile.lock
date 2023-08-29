@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omniauth-slack-openid (1.0.0)
+    omniauth-slack-openid (1.0.2)
       omniauth (~> 2)
       omniauth-oauth2 (~> 1)
 

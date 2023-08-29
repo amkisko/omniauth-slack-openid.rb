@@ -10,9 +10,10 @@ e() {
 }
 
 GEM_NAME="omniauth-slack-openid"
-VERSION=$(grep -e 'VERSION = .*' lib/omniauth/slack_openid/version.rb | sed -e "s/.*'\(.*\)'.*/\1/")
+VERSION=$(grep -Eo "VERSION\s*=\s*'.+'" lib/omniauth/slack_openid.rb | grep -Eo "[0-9.]{5,}")
 GEM_FILE="$GEM_NAME-$VERSION.gem"
 
 e "gem build $GEM_NAME.gemspec"
 e "gem push $GEM_FILE"
 
+e "git tag $VERSION && git push --tags"

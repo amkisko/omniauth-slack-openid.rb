@@ -1,9 +1,8 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/omniauth/slack_openid/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name = "omniauth-slack-openid"
-  gem.version = OmniAuth::SlackOpenid::VERSION
+  gem.version = File.read(File.expand_path('../lib/omniauth/slack_openid.rb', __FILE__)).match(/VERSION\s*=\s*'(.*?)'/)[1]
 
   repository_url = "https://github.com/amkisko/omniauth-slack-openid.rb"
   root_files = %w(CHANGELOG.md LICENSE.md README.md)
