@@ -1,6 +1,6 @@
 # omniauth-slack-openid.rb
 
-[![Gem Version](https://badge.fury.io/rb/omniauth-slack-openid.svg)](https://badge.fury.io/rb/omniauth-slack-openid) [![Test Status](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml/badge.svg)](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml)
+[![Gem Version](https://badge.fury.io/rb/omniauth-slack-openid.svg)](https://badge.fury.io/rb/omniauth-slack-openid) [![Test Status](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml/badge.svg)](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml) [![codecov](https://codecov.io/gh/amkisko/omniauth-slack-openid.rb/graph/badge.svg?token=HIOT78D47F)](https://codecov.io/gh/amkisko/omniauth-slack-openid.rb)
 
 An OmniAuth strategy for implementing Sign-in with Slack using OpenID Connect.
 
