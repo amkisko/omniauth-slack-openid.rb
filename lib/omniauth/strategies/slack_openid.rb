@@ -5,20 +5,19 @@ module OmniAuth
     class SlackOpenid < OmniAuth::Strategies::OAuth2
       AUTH_OPTIONS = %i[scope user_scope team team_domain].freeze
 
-      INFO_DATA =
-        Data.define(
-          :user_id,
-          :team_id,
-          :email,
-          :email_verified,
-          :name,
-          :picture,
-          :given_name,
-          :family_name,
-          :locale,
-          :team_name,
-          :team_domain
-        )
+      INFO_DATA = Struct.new(
+        :user_id,
+        :team_id,
+        :email,
+        :email_verified,
+        :name,
+        :picture,
+        :given_name,
+        :family_name,
+        :locale,
+        :team_name,
+        :team_domain
+      )
 
       option :name, "slack_openid"
       option :client_options,
