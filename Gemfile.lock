@@ -78,7 +78,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2)
   omniauth-slack-openid!
-  pry-byebug
+  pry-byebug (~> 3)
   rake (~> 13)
   rspec (~> 3)
 
