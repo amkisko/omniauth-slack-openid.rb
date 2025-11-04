@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.platform = Gem::Platform::RUBY
 
   gem.authors = ["Andrei Makarov"]
-  gem.email = ["andrei@kiskolabs.com"]
+  gem.email = ["contact@kiskolabs.com"]
   gem.homepage = repository_url
   gem.summary = %q{An OmniAuth strategy for implementing Sign-in with Slack using OpenID Connect}
   gem.description = gem.summary
