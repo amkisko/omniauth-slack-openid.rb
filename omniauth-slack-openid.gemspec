@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name = "omniauth-slack-openid"
-  gem.version = File.read(File.expand_path('../lib/omniauth/slack_openid.rb', __FILE__)).match(/VERSION\s*=\s*'(.*?)'/)[1]
+  gem.version = File.read(File.expand_path('../lib/omniauth/slack_openid.rb', __FILE__)).match(/VERSION\s*=\s*"(.*?)"/)[1]
 
   root_files = %w(CHANGELOG.md LICENSE.md README.md)
   root_files << "#{gem.name}.gemspec"
