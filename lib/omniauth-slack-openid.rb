@@ -1,1 +1,1 @@
-require 'omniauth/slack_openid'
+require "omniauth/slack_openid"

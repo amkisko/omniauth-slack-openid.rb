@@ -1,8 +1,8 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe OmniAuth::Strategies::SlackOpenid do
-  let(:user_name) { 'brent' }
-  let(:user_email) { 'bront@slack-corp.com' }
+  let(:user_name) { "brent" }
+  let(:user_email) { "bront@slack-corp.com" }
   let(:raw_info) {
     {
       "ok" => true,
@@ -35,20 +35,20 @@ describe OmniAuth::Strategies::SlackOpenid do
       "https://slack.com/team_image_default" => true
     }
   }
-  let(:dummy_rack_app) { [200, {}, ['dummy']] }
+  let(:dummy_rack_app) { [200, {}, ["dummy"]] }
   let(:options) { {} }
 
   subject(:strategy) { OmniAuth::Strategies::SlackOpenid.new(dummy_rack_app, options) }
 
-  describe 'options' do
+  describe "options" do
     subject { strategy.options }
 
-    it { expect(subject.client_options.site).to eq('https://slack.com') }
-    it { expect(subject.client_options.authorize_url).to eq('/openid/connect/authorize') }
-    it { expect(subject.client_options.token_url).to eq('/api/openid.connect.token') }
+    it { expect(subject.client_options.site).to eq("https://slack.com") }
+    it { expect(subject.client_options.authorize_url).to eq("/openid/connect/authorize") }
+    it { expect(subject.client_options.token_url).to eq("/api/openid.connect.token") }
   end
 
-  describe '#info' do
+  describe "#info" do
     before do
       allow(strategy).to receive(:raw_info) { raw_info }
     end
@@ -59,13 +59,13 @@ describe OmniAuth::Strategies::SlackOpenid do
     it { expect(subject[:email]).to eq(user_email) }
   end
 
-  describe '#uid' do
+  describe "#uid" do
     before do
       allow(strategy).to receive(:raw_info) { raw_info }
     end
 
     subject { strategy.uid }
 
-    it { expect(subject).to eq('T0R7GR-U0R7JM') }
+    it { expect(subject).to eq("T0R7GR-U0R7JM") }
   end
 end

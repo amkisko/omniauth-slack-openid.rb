@@ -4,4 +4,3 @@ if ENV["CI"]
     config.add_formatter RspecJunitFormatter, "coverage/junit-coverage.xml"
   end
 end
-

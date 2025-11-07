@@ -1,4 +1,4 @@
-require 'omniauth/strategies/oauth2'
+require "omniauth/strategies/oauth2"
 
 module OmniAuth
   module Strategies
@@ -21,11 +21,11 @@ module OmniAuth
 
       option :name, "slack_openid"
       option :client_options,
-             {
-               site: "https://slack.com",
-               authorize_url: "/openid/connect/authorize",
-               token_url: "/api/openid.connect.token"
-             }
+        {
+          site: "https://slack.com",
+          authorize_url: "/openid/connect/authorize",
+          token_url: "/api/openid.connect.token"
+        }
 
       option :redirect_uri
 
@@ -40,11 +40,13 @@ module OmniAuth
         )
       end
 
-      info do {
-        name: raw_info["name"],
-        email: raw_info["email"],
-        image: raw_info["picture"]
-      } end
+      info do
+        {
+          name: raw_info["name"],
+          email: raw_info["email"],
+          image: raw_info["picture"]
+        }
+      end
 
       extra do
         {
