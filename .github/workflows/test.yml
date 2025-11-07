@@ -12,7 +12,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby_version: ["2.7", ruby, jruby, truffleruby]
+        include:
+          - gemfile: ruby27
+            ruby_version: "2.7"
+          - gemfile: ruby
+            ruby_version: "3.4"
+          - gemfile: jruby
+            ruby_version: "jruby"
+          - gemfile: truffleruby
+            ruby_version: "truffleruby"
+
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
 
     steps:
     - uses: actions/checkout@v5
