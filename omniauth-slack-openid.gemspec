@@ -25,7 +25,7 @@ Gem::Specification.new do |gem|
   }
 
   gem.executables = Dir.glob("bin/*").map{ |f| File.basename(f) }
-  gem.files = Dir.glob("lib/**/*.rb") + Dir.glob("bin/**/*") + root_files
+  gem.files = Dir.glob("lib/**/*.rb") + Dir.glob("bin/**/*") + Dir.glob("sig/**/*.rbs") + root_files
   gem.test_files = Dir.glob("spec/**/*_spec.rb")
 
   gem.required_ruby_version = ">= 2.5.0"
@@ -41,4 +41,9 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'pry', '~> 0.15'
   gem.add_development_dependency 'simplecov', '~> 0.22'
   gem.add_development_dependency 'simplecov-cobertura', '~> 3'
+  gem.add_development_dependency 'rspec_junit_formatter', '~> 0.6'
+  gem.add_development_dependency 'bigdecimal'
+  gem.add_development_dependency 'standard', '~> 1'
+  gem.add_development_dependency 'appraisal', '~> 2'
+  gem.add_development_dependency 'rbs', '~> 3'
 end

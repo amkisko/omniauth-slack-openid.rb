@@ -1,0 +1,6 @@
+module OmniAuth
+  module SlackOpenid
+    VERSION: String
+  end
+end
+

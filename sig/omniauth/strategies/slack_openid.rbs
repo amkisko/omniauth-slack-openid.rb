@@ -1,0 +1,42 @@
+module OmniAuth
+  module Strategies
+    class SlackOpenid < OmniAuth::Strategies::OAuth2
+      AUTH_OPTIONS: Array[Symbol]
+
+      class INFO_DATA < Struct
+        attr_reader user_id: String?
+        attr_reader team_id: String?
+        attr_reader email: String?
+        attr_reader email_verified: bool?
+        attr_reader name: String?
+        attr_reader picture: String?
+        attr_reader given_name: String?
+        attr_reader family_name: String?
+        attr_reader locale: String?
+        attr_reader team_name: String?
+        attr_reader team_domain: String?
+
+        def initialize: (
+          ?user_id: String?,
+          ?team_id: String?,
+          ?email: String?,
+          ?email_verified: bool?,
+          ?name: String?,
+          ?picture: String?,
+          ?given_name: String?,
+          ?family_name: String?,
+          ?locale: String?,
+          ?team_name: String?,
+          ?team_domain: String?
+        ) -> void
+      end
+
+      def self.generate_uid: (String team_id, String user_id) -> String
+
+      def callback_url: () -> String
+
+      def raw_info: () -> Hash[String, untyped]
+    end
+  end
+end
+
