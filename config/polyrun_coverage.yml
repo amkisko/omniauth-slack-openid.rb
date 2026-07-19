@@ -1,0 +1,9 @@
+# Polyrun::Coverage::Rails — loaded from spec/spec_helper via Polyrun::Coverage::Rails.start!
+
+track_under:
+  - lib
+reject_patterns:
+  - "/lib/omniauth/slack_openid.rb"
+  - "/spec/"
+minimum_line_percent: 80
+strict: true

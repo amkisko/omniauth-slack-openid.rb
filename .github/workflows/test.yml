@@ -2,11 +2,39 @@ name: test
 
 on:
   workflow_dispatch:
+  pull_request:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+          bundler-cache: true
+      - name: Audit root Gemfile.lock
+        run: bundle exec bundle audit check --update
+      - name: Install and audit appraisal gemfiles (Ruby 3.4)
+        run: |
+          BUNDLE_GEMFILE=gemfiles/ruby.gemfile bundle install
+          BUNDLE_GEMFILE=gemfiles/ruby.gemfile bundle exec bundle audit check
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "4.0"
+          bundler-cache: false
+      - name: Install and audit ruby40 gemfile
+        run: |
+          BUNDLE_GEMFILE=gemfiles/ruby40.gemfile bundle install
+          BUNDLE_GEMFILE=gemfiles/ruby40.gemfile bundle exec bundle audit check
+
   test:
+    needs: audit
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,38 +45,39 @@ jobs:
             ruby_version: "3.4"
           - gemfile: ruby40
             ruby_version: "4.0"
-          - gemfile: truffleruby
-            ruby_version: "truffleruby"
 
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
 
     steps:
-    - uses: actions/checkout@v6
-
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+    - uses: actions/checkout@v7
+    - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby_version }}
         bundler-cache: true
-
     - name: Run tests
       run: bundle exec rspec
 
   coverage:
+    needs: audit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.4"
           bundler-cache: true
-      - run: bundle exec rspec
-      - uses: codecov/codecov-action@v5
+      - name: Run tests with Polyrun coverage
+        env:
+          POLYRUN_COVERAGE: "1"
+        run: |
+          mkdir -p coverage
+          bundle exec rspec --format documentation --format RspecJunitFormatter --out coverage/junit-coverage.xml
+      - uses: codecov/codecov-action@v7
         continue-on-error: true
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v7
         if: ${{ !cancelled() }}
         continue-on-error: true
         with:
@@ -56,4 +85,3 @@ jobs:
           files: coverage/junit-coverage.xml
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-

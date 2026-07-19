@@ -31,12 +31,17 @@ module OmniAuth
         ) -> void
       end
 
-      def self.generate_uid: (String team_id, String user_id) -> String
+      def self.generate_uid: (String? team_id, String? user_id) -> String
+
+      def authorize_params: () -> Hash[Symbol, untyped]
 
       def callback_url: () -> String
 
       def raw_info: () -> Hash[String, untyped]
+
+      private
+
+      def fetch_and_validate_user_info: () -> Hash[String, untyped]
     end
   end
 end
-

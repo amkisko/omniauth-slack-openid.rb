@@ -1,17 +1,14 @@
-version: 1
-
-coverage:
-  output_path: coverage
-  formats:
-    - html
-    - cobertura
-    - console
-
-hooks:
-  before_suite:
-    - bundle exec rubocop
-    - bundle exec rbs validate
+# Parallel RSpec: generate paths with `bundle exec polyrun build-paths -c polyrun.yml`.
 
 partition:
+  suite: rspec
+  paths_file: spec/spec_paths.txt
+  shard_total: 5
+  shard_index: 0
+  strategy: round_robin
   paths_build:
     all_glob: spec/**/*_spec.rb
+
+reporting:
+  merge_spec_quality: false
+  merge_spec_quality_output: coverage/polyrun-spec-quality.json

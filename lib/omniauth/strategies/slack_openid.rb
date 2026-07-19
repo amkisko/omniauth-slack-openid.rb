@@ -3,7 +3,7 @@ require "omniauth/strategies/oauth2"
 module OmniAuth
   module Strategies
     class SlackOpenid < OmniAuth::Strategies::OAuth2
-      AUTH_OPTIONS = %i[scope user_scope team team_domain].freeze
+      AUTH_OPTIONS = %i[scope team].freeze
 
       INFO_DATA = Struct.new(
         :user_id,
@@ -16,7 +16,8 @@ module OmniAuth
         :family_name,
         :locale,
         :team_name,
-        :team_domain
+        :team_domain,
+        keyword_init: true
       )
 
       option :name, "slack_openid"
@@ -28,9 +29,16 @@ module OmniAuth
         }
 
       option :redirect_uri
+      option :authorize_options, AUTH_OPTIONS
 
       def self.generate_uid(team_id, user_id)
-        "#{team_id}-#{user_id}"
+        team = team_id.to_s
+        user = user_id.to_s
+        if team.empty? || user.empty?
+          raise ArgumentError, "team_id and user_id are required"
+        end
+
+        "#{team}-#{user}"
       end
 
       uid do
@@ -68,12 +76,45 @@ module OmniAuth
         }
       end
 
+      def authorize_params
+        super.tap do |params|
+          AUTH_OPTIONS.each do |key|
+            value = request.params[key.to_s]
+            params[key] = value if value && !value.to_s.empty?
+          end
+        end
+      end
+
       def callback_url
         options.redirect_uri || (full_host + script_name + callback_path)
       end
 
       def raw_info
-        @raw_info ||= access_token.get("/api/openid.connect.userInfo").parsed
+        @raw_info ||= fetch_and_validate_user_info
+      end
+
+      private
+
+      def fetch_and_validate_user_info
+        response = access_token.get("/api/openid.connect.userInfo").parsed
+        unless response.is_a?(Hash) && response["ok"] == true
+          error = response.is_a?(Hash) ? response["error"] : nil
+          raise CallbackError.new(
+            :invalid_credentials,
+            "Slack userInfo failed#{error ? ": #{error}" : ""}"
+          )
+        end
+
+        team_id = response["https://slack.com/team_id"].to_s
+        user_id = response["https://slack.com/user_id"].to_s
+        if team_id.empty? || user_id.empty?
+          raise CallbackError.new(
+            :invalid_credentials,
+            "Slack userInfo missing team_id or user_id"
+          )
+        end
+
+        response
       end
     end
   end
