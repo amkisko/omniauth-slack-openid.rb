@@ -1,10 +1,10 @@
-appraise "ruby27" do
-  ruby "~> 2.7.0"
+appraise "ruby" do
   gem "omniauth", "~> 2.0"
   gem "omniauth-oauth2", "~> 1.8"
 end
 
-appraise "ruby" do
+appraise "ruby40" do
+  ruby ">= 4.0.0"
   gem "omniauth", "~> 2.0"
   gem "omniauth-oauth2", "~> 1.8"
 end

@@ -1,6 +1,6 @@
 # omniauth-slack-openid.rb
 
-[![Gem Version](https://badge.fury.io/rb/omniauth-slack-openid.svg)](https://badge.fury.io/rb/omniauth-slack-openid) [![Test Status](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml/badge.svg)](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml) [![codecov](https://codecov.io/gh/amkisko/omniauth-slack-openid.rb/graph/badge.svg?token=HIOT78D47F)](https://codecov.io/gh/amkisko/omniauth-slack-openid.rb)
+[![Gem Version](https://badge.fury.io/rb/omniauth-slack-openid.svg)](https://badge.fury.io/rb/omniauth-slack-openid) [![Test Status](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml/badge.svg)](https://github.com/amkisko/omniauth-slack-openid.rb/actions/workflows/test.yml) [![codecov](https://codecov.io/gh/amkisko/omniauth-slack-openid.rb/graph/badge.svg?token=HIOT78D47F)](https://app.codecov.io/github/amkisko/omniauth-slack-openid.rb)
 
 An OmniAuth strategy for implementing Sign-in with Slack using OpenID Connect.
 
@@ -80,6 +80,19 @@ rm omniauth-slack-openid-*.gem
 gem build omniauth-slack-openid.gemspec
 gem push omniauth-slack-openid-*.gem
 ```
+
+## Links
+
+- [GitHub](https://github.com/amkisko/omniauth-slack-openid.rb)
+- [GitLab](https://gitlab.com/amkisko/omniauth-slack-openid.rb)
+- [RubyGems](https://rubygems.org/gems/omniauth-slack-openid)
+- [Versions Atom](https://rubygems.org/gems/omniauth-slack-openid/versions.atom) (feed id `5816970036548`)
+- [libraries.io](https://libraries.io/rubygems/omniauth-slack-openid)
+- [Deps.dev](https://deps.dev/rubygems/omniauth-slack-openid)
+- [SonarCloud](https://sonarcloud.io/project/overview?id=amkisko_omniauth-slack-openid.rb)
+- [Snyk](https://snyk.io/test/github/amkisko/omniauth-slack-openid.rb)
+- [Codecov](https://app.codecov.io/github/amkisko/omniauth-slack-openid.rb)
+- [OpenSSF Scorecard](https://scorecard.dev/viewer/?uri=github.com/amkisko/omniauth-slack-openid.rb)
 
 ## License
 
