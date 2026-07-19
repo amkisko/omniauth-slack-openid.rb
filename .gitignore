@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-.bundle
+/.bundle
 /vendor/bundle
 
 .byebug_history
@@ -24,3 +24,9 @@
 *.gem
 
 /gemfiles/*.lock
+
+
+# Cursor IDE config (may contain secrets)
+.cursor/mcp.json
+
+.pray/cache
