@@ -4,13 +4,7 @@
 
 An OmniAuth strategy for implementing Sign-in with Slack using OpenID Connect.
 
-Official documentation: https://api.slack.com/authentication/sign-in-with-slack
-
-Sponsored by [Kisko Labs](https://www.kiskolabs.com).
-
-<a href="https://www.kiskolabs.com">
-  <img src="kisko.svg" width="200" alt="Sponsored by Kisko Labs" />
-</a>
+Official Slack API documentation: https://api.slack.com/authentication/sign-in-with-slack
 
 ## Install
 
@@ -97,3 +91,11 @@ gem push omniauth-slack-openid-*.gem
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Sponsors
+
+Sponsored by [Kisko Labs](https://www.kiskolabs.com).
+
+<a href="https://www.kiskolabs.com">
+  <img src="kisko.svg" width="200" alt="Sponsored by Kisko Labs" />
+</a>
