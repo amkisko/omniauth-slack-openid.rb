@@ -5,5 +5,5 @@ track_under:
 reject_patterns:
   - "/lib/omniauth/slack_openid.rb"
   - "/spec/"
-minimum_line_percent: 80
+minimum_line_percent: 100
 strict: true

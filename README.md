@@ -6,6 +6,12 @@ An OmniAuth strategy for implementing Sign-in with Slack using OpenID Connect.
 
 Official Slack API documentation: https://api.slack.com/authentication/sign-in-with-slack
 
+## Identity model
+
+This strategy exchanges the OAuth authorization code for an access token, then loads identity from Slack `openid.connect.userInfo`. It does not validate Slack's `id_token` JWT (signature, `aud`, `iss`, `exp`, or `nonce`). Treat the OmniAuth AuthHash as session identity established through Slack's token and userInfo endpoints, not as a fully verified OIDC ID token.
+
+`info[:email]` is set only when Slack reports `email_verified: true`. Unverified addresses remain available on `extra[:data].email` and `extra[:raw_info]` when you need them for display or support flows.
+
 ## Install
 
 Using Bundler:
@@ -44,13 +50,12 @@ Add the following to your `config/initializers/devise.rb`:
     ENV.fetch("SLACK_CLIENT_SECRET"),
     {
       scope: "openid,email,profile",
-      redirect_uri: Rails.env.development? ? "https://localhost:3000/user/auth/slack_openid/callback" : nil,
-      provider_ignores_state: Rails.env.development?
+      redirect_uri: Rails.env.development? ? "https://localhost:3000/user/auth/slack_openid/callback" : nil
     }
   )
 ```
 
-In order to test the callback in development, try logging in and then manually update URL to use http instead of https.
+Keep OmniAuth state checks enabled (`provider_ignores_state` must stay unset or false outside local debugging). Prefer fixing local TLS or `redirect_uri` over disabling CSRF state validation. For local callback testing with an HTTPS redirect registered in Slack, complete the authorize step, then if needed adjust the callback URL host scheme carefully while leaving state verification on.
 
 ## Generating uid
 

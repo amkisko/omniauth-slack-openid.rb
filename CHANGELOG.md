@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.0.1 (2026-07-19)
+
+- Omit `info[:email]` unless Slack reports `email_verified: true` (unverified email stays on `extra`)
+- Document userInfo-based identity (no `id_token` JWT validation) and keep CSRF state checks enabled in examples
+- Commit Ruby 4.0 appraisal lockfile; Dependabot watches `gemfiles/`
+- Cover non-Hash userInfo, request `scope`, and AuthHash build from userInfo; split strategy specs by concern
+- Raise Polyrun coverage floor to 100% line coverage on tracked lib files
+
 ## 2.0.0 (2026-07-19)
 
 - BREAKING: Require Ruby 3.4 or newer

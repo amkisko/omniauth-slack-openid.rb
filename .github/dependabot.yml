@@ -18,3 +18,12 @@ updates:
       bundler:
         patterns:
           - "*"
+  - package-ecosystem: bundler
+    directory: /gemfiles
+    open-pull-requests-limit: 10
+    schedule:
+      interval: weekly
+    groups:
+      appraisal:
+        patterns:
+          - "*"
