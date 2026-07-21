@@ -52,5 +52,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "rubocop-rspec", "~> 3.8"
   gem.add_development_dependency "rubocop-thread_safety", "~> 0.7"
   gem.add_development_dependency "appraisal", "~> 2"
-  gem.add_development_dependency "rbs", "~> 3"
+  gem.add_development_dependency "rbs", "~> 4"
 end
