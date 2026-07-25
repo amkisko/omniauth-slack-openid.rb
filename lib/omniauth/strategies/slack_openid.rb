@@ -16,8 +16,7 @@ module OmniAuth
         :family_name,
         :locale,
         :team_name,
-        :team_domain,
-        keyword_init: true
+        :team_domain
       )
 
       option :name, "slack_openid"
@@ -101,7 +100,7 @@ module OmniAuth
           error = response.is_a?(Hash) ? response["error"] : nil
           raise CallbackError.new(
             :invalid_credentials,
-            "Slack userInfo failed#{error ? ": #{error}" : ""}"
+            "Slack userInfo failed#{": #{error}" if error}"
           )
         end
 

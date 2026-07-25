@@ -2,11 +2,11 @@ require "spec_helper"
 
 describe OmniAuth::Strategies::SlackOpenid, :slack_openid do
   describe "#info" do
+    subject { strategy.info }
+
     before do
       allow(strategy).to receive(:raw_info) { raw_info }
     end
-
-    subject { strategy.info }
 
     it { expect(subject[:name]).to eq(user_name) }
     it { expect(subject[:email]).to eq(user_email) }
@@ -22,21 +22,21 @@ describe OmniAuth::Strategies::SlackOpenid, :slack_openid do
   end
 
   describe "#uid" do
+    subject { strategy.uid }
+
     before do
       allow(strategy).to receive(:raw_info) { raw_info }
     end
-
-    subject { strategy.uid }
 
     it { expect(subject).to eq("T0R7GR-U0R7JM") }
   end
 
   describe "#extra" do
+    subject(:extra) { strategy.extra }
+
     before do
       allow(strategy).to receive(:raw_info) { raw_info }
     end
-
-    subject(:extra) { strategy.extra }
 
     it "exposes typed data from userInfo" do
       expect(extra[:data].user_id).to eq("U0R7JM")

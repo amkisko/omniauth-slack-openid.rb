@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 Gem::Specification.new do |gem|
   gem.name = "omniauth-slack-openid"
   gem.version = File.read(File.expand_path("../lib/omniauth/slack_openid.rb", __FILE__)).match(/VERSION\s*=\s*"(.*?)"/)[1]
@@ -26,7 +24,6 @@ Gem::Specification.new do |gem|
 
   gem.executables = Dir.glob("bin/*").map { |f| File.basename(f) }
   gem.files = Dir.glob("lib/**/*.rb") + Dir.glob("bin/**/*") + Dir.glob("sig/**/*.rbs") + root_files
-  gem.test_files = Dir.glob("spec/**/*_spec.rb")
 
   gem.required_ruby_version = ">= 3.4"
   gem.require_paths = ["lib"]

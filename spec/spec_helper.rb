@@ -30,4 +30,3 @@ Polyrun::RSpec.install_example_timeout!
 if %w[1 true yes].include?(ENV["POLYRUN_SPEC_QUALITY"]&.to_s&.downcase)
   Polyrun::RSpec.install_spec_quality!
 end
-
