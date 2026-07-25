@@ -15,5 +15,5 @@ audit:
 		BUNDLE_GEMFILE="$$gemfile" bundle exec bundle audit check; \
 	done
 
-test:
+test: lint
 	bundle exec polyrun parallel-rspec --workers 5 --merge-failures -c polyrun.yml
