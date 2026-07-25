@@ -83,8 +83,9 @@ GEM
       rack (>= 3.0.0, < 4)
     rainbow (3.1.1)
     rake (13.4.2)
-    rbs (3.10.4)
+    rbs (4.0.3)
       logger
+      prism (>= 1.6.0)
       tsort
     regexp_parser (2.12.0)
     reline (0.6.3)
@@ -187,7 +188,7 @@ DEPENDENCIES
   polyrun (>= 2.2.0)
   pry (~> 0.15)
   rake (~> 13)
-  rbs (~> 3)
+  rbs (~> 4)
   rspec (~> 3)
   rspec_junit_formatter (~> 0.6)
   rubocop-rspec (~> 3.8)
@@ -236,7 +237,7 @@ CHECKSUMS
   rack-protection (4.2.1) sha256=cf6e2842df8c55f5e4d1a4be015e603e19e9bc3a7178bae58949ccbb58558bac
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.4.2) sha256=cb825b2bd5f1f8e91ca37bddb4b9aaf345551b4731da62949be002fa89283701
-  rbs (3.10.4) sha256=b17d7c4be4bb31a11a3b529830f0aa206a807ca42f2e7921a3027dfc6b7e5ce8
+  rbs (4.0.3) sha256=5a7bf70e2628549d9a1f44eae447b2cfe55968a9c60cfff52693a4bdcc020e14
   regexp_parser (2.12.0) sha256=35a916a1d63190ab5c9009457136ae5f3c0c7512d60291d0d1378ba18ce08ebb
   reline (0.6.3) sha256=1198b04973565b36ec0f11542ab3f5cfeeec34823f4e54cebde90968092b1835
   rspec (3.13.2) sha256=206284a08ad798e61f86d7ca3e376718d52c0bc944626b2349266f239f820587
