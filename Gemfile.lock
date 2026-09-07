@@ -38,8 +38,8 @@ GEM
       logger
     io-console (0.8.2)
     io-console (0.8.2-java)
-    json (2.21.1)
-    json (2.21.1-java)
+    json (2.21.2)
+    json (2.21.2-java)
     jwt (3.2.0)
       base64
     language_server-protocol (3.17.0.6)
