@@ -38,7 +38,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "pry", "~> 0.15"
   gem.add_development_dependency "polyrun", ">= 2.2.0"
   gem.add_development_dependency "bundler-audit", "~> 0.9"
-  gem.add_development_dependency "rspec_junit_formatter", "~> 0.6"
   gem.add_development_dependency "bigdecimal"
   gem.add_development_dependency "ostruct"
   gem.add_development_dependency "tsort"

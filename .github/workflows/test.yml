@@ -70,7 +70,7 @@ jobs:
         ruby-version: ${{ matrix.ruby_version }}
         bundler-cache: true
     - name: Run tests
-      run: bundle exec rspec
+      run: bundle exec polyrun parallel-rspec --workers 5 --merge-failures -c polyrun.yml
 
   coverage:
     needs: audit
@@ -84,9 +84,18 @@ jobs:
       - name: Run tests with Polyrun coverage
         env:
           POLYRUN_COVERAGE: "1"
+        run: bundle exec polyrun parallel-rspec --workers 5 --merge-failures -c polyrun.yml
+      - name: Report coverage for Sonar/Codecov
+        run: >
+          bundle exec polyrun report-coverage
+          -i coverage/merged.json
+          -o coverage
+          --basename coverage
+          --format json,cobertura
+      - name: Merge RSpec JSON into JUnit
         run: |
           mkdir -p coverage
-          bundle exec rspec --format documentation --format RspecJunitFormatter --out coverage/junit-coverage.xml
+          bundle exec polyrun report-junit -i "tmp/rspec-*.json" -o coverage/junit-coverage.xml
       - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7
         continue-on-error: true
         env:
