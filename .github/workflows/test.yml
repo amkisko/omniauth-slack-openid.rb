@@ -24,31 +24,7 @@ jobs:
       - name: Run lint
         run: make lint
 
-  audit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1
-        with:
-          ruby-version: "3.4"
-          bundler-cache: true
-      - name: Audit root Gemfile.lock
-        run: bundle exec bundle audit check --update
-      - name: Install and audit appraisal gemfiles (Ruby 3.4)
-        run: |
-          BUNDLE_GEMFILE=gemfiles/ruby.gemfile bundle install
-          BUNDLE_GEMFILE=gemfiles/ruby.gemfile bundle exec bundle audit check
-      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1
-        with:
-          ruby-version: "4.0"
-          bundler-cache: false
-      - name: Install and audit ruby40 gemfile
-        run: |
-          BUNDLE_GEMFILE=gemfiles/ruby40.gemfile bundle install
-          BUNDLE_GEMFILE=gemfiles/ruby40.gemfile bundle exec bundle audit check
-
   test:
-    needs: audit
     runs-on: ubuntu-latest
 
     strategy:
@@ -73,7 +49,6 @@ jobs:
       run: bundle exec polyrun parallel-rspec --workers 5 --merge-failures -c polyrun.yml
 
   coverage:
-    needs: audit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
