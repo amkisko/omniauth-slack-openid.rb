@@ -1,4 +1,4 @@
-# Polyrun::Coverage::Rails — loaded from spec/spec_helper via Polyrun::Coverage::Rails.start!
+# Polyrun::Coverage::Rails - loaded from spec/spec_helper via Polyrun::Coverage::Rails.start!
 
 track_under:
   - lib

@@ -8,9 +8,9 @@ Official Slack API documentation: https://api.slack.com/authentication/sign-in-w
 
 ## Identity model
 
-This strategy exchanges the OAuth authorization code for an access token, then loads identity from Slack `openid.connect.userInfo`. It does not validate Slack's `id_token` JWT (signature, `aud`, `iss`, `exp`, or `nonce`). Treat the OmniAuth AuthHash as session identity established through Slack's token and userInfo endpoints, not as a fully verified OIDC ID token.
+This strategy exchanges the OAuth authorization code for an access token, then loads identity from Slack `openid.connect.userInfo`. Slack's `id_token` JWT is left unchecked (signature, `aud`, `iss`, `exp`, and `nonce`). Treat the OmniAuth AuthHash as session identity from Slack's token and userInfo endpoints. It is not a fully verified OIDC ID token.
 
-`info[:email]` is set only when Slack reports `email_verified: true`. Unverified addresses remain available on `extra[:data].email` and `extra[:raw_info]` when you need them for display or support flows.
+`info[:email]` is set when Slack reports `email_verified: true`. Unverified addresses stay on `extra[:data].email` and `extra[:raw_info]` for display or support flows.
 
 ## Install
 
@@ -55,11 +55,11 @@ Add the following to your `config/initializers/devise.rb`:
   )
 ```
 
-Keep OmniAuth state checks enabled (`provider_ignores_state` must stay unset or false outside local debugging). Prefer fixing local TLS or `redirect_uri` over disabling CSRF state validation. For local callback testing with an HTTPS redirect registered in Slack, complete the authorize step, then if needed adjust the callback URL host scheme carefully while leaving state verification on.
+Leave OmniAuth CSRF state checks on (`provider_ignores_state` unset or `false`). Fix local TLS or `redirect_uri` when callbacks fail in development. For local testing against an HTTPS redirect registered in Slack, finish the authorize step, then adjust the callback host or scheme only as needed while state verification stays enabled.
 
 ## Generating uid
 
-Gem has own `generate_uid` method that concatenates `team_id` and `user_id`, you can use it with custom parameters:
+The gem provides `generate_uid`, which joins `team_id` and `user_id`. Call it with your own parameters when you need the same compound id:
 
 ```ruby
 def resolve_user_session(team_id, user_id)
@@ -74,11 +74,13 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/amkisk
 
 ## Publishing
 
+Maintainers cut a release from a clean worktree with:
+
 ```sh
-rm omniauth-slack-openid-*.gem
-gem build omniauth-slack-openid.gemspec
-gem push omniauth-slack-openid-*.gem
+make release
 ```
+
+That path runs lint, tests, changelog and confirmation gates, then `gem push`, tags, and a GitHub release.
 
 ## Links
 

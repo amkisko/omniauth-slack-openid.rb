@@ -2,7 +2,7 @@ Test CI ran bundler-audit before specs.
 
 ## Participants
 
-- amkisko
+Andrei Makarov (@amkisko)
 
 ## Decisions
 
