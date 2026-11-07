@@ -69,7 +69,7 @@ GEM
     parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
-    polyrun (2.2.0)
+    polyrun (2.2.9)
     prism (1.9.0)
     pry (0.16.0)
       coderay (~> 1.1)
@@ -182,7 +182,7 @@ DEPENDENCIES
   omniauth-oauth2 (~> 1.8)
   omniauth-slack-openid!
   ostruct
-  polyrun (>= 2.2.0)
+  polyrun (>= 2.2.9)
   pry (~> 0.15)
   rake (~> 13)
   rbs (~> 4)

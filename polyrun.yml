@@ -1,5 +1,14 @@
 # Parallel RSpec: generate paths with `bundle exec polyrun build-paths -c polyrun.yml`.
 
+version: 1
+
+coverage:
+  output_path: coverage
+  formats:
+    - html
+    - cobertura
+    - console
+
 partition:
   suite: rspec
   paths_file: spec/spec_paths.txt

@@ -69,7 +69,7 @@ GEM
     parser (3.3.12.0)
       ast (~> 2.4.1)
       racc
-    polyrun (2.2.1)
+    polyrun (2.2.9)
     prism (1.9.0)
     pry (0.16.0)
       coderay (~> 1.1)
@@ -183,7 +183,7 @@ DEPENDENCIES
   omniauth-oauth2 (~> 1.8)
   omniauth-slack-openid!
   ostruct
-  polyrun (>= 2.2.0)
+  polyrun (>= 2.2.9)
   pry (~> 0.15)
   rake (~> 13)
   rbs (~> 4)
@@ -226,7 +226,7 @@ CHECKSUMS
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel (2.1.0) sha256=b35258865c2e31134c5ecb708beaaf6772adf9d5efae28e93e99260877b09356
   parser (3.3.12.0) sha256=21a6d7f755d5a24dfbdc6e6b772e4e879a52e7631a88bc5a3a134606052c9828
-  polyrun (2.2.1) sha256=426672e30597b3116132f1b1be4e1875554b7ca51125c59c42a7963fe5106d25
+  polyrun (2.2.9) sha256=0ea6ea3590f3756e30fc5adb2358129ba4142cb1b86ebd7da975873444970ec3
   prism (1.9.0) sha256=7b530c6a9f92c24300014919c9dcbc055bf4cdf51ec30aed099b06cd6674ef85
   pry (0.16.0) sha256=d76c69065698ed1f85e717bd33d7942c38a50868f6b0673c636192b3d1b6054e
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
